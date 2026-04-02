@@ -16,7 +16,7 @@ Una página HTML autocontenida con:
 - Pomodoro timer
 - Relojes mundiales
 - Widget de clima (Open-Meteo, sin API key)
-- Fondo aleatorio (Picsum Photos)
+- Fondo aleatorio
 
 ---
 
