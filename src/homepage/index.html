@@ -42,6 +42,7 @@ a:hover{color:#66eaff;transform:translateX(5px);padding-left:2px}
 #calendar table{width:100%;border-collapse:collapse;text-align:center}
 #calendar th,#calendar td{border:1px solid #444;padding:5px;font-size:.9rem}
 #calendar th{background:rgba(255,255,255,.2)}
+#calendar td.today{background:rgba(102,234,255,.22);font-weight:600;color:#fff}
 .pomodoro-container{display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .timer-display{font-size:1.5rem;font-weight:600}
 .timer-buttons{display:flex;gap:.5rem}
@@ -59,7 +60,9 @@ a:hover{color:#66eaff;transform:translateX(5px);padding-left:2px}
 .weather-temp{font-size:1.2rem;font-weight:600}
 .weather-icon{font-size:1.5rem}
 .footer{margin-top:1rem;text-align:center;font-size:.8rem;color:#aaa}
-@media(max-width:900px){body{overflow:auto}main{flex-direction:column;gap:1rem}.search-container{width:95%}}
+a.link-match{color:#66eaff;background:rgba(102,234,255,.18);border-radius:3px}
+li.link-hidden,.section.section-hidden{display:none}
+@media(max-width:900px){html,body{overflow:auto;height:auto}main{flex-direction:column;gap:1rem}.search-container{width:95%}}
 </style>
 </head>
 <body>
@@ -69,63 +72,23 @@ a:hover{color:#66eaff;transform:translateX(5px);padding-left:2px}
 <p class="subtitle">Si una tarea toma menos de 2 minutos, hazla inmediatamente. Done is better than perfect.</p>
 </header>
 <div class="search-container">
-<input id="search-input" class="search-input" placeholder="Buscar en..." />
+<input id="search-input" class="search-input" placeholder="Buscar atajos o en Google..." autocomplete="off" />
 <div class="search-buttons">
-<button id="google-search" class="search-button google-btn" title="Google"><i class="fab fa-google"></i></button>
-<button id="maps-search" class="search-button maps-btn" title="Maps"><i class="fas fa-map-marked-alt"></i></button>
-<button id="chatgpt-search" class="search-button chatgpt-btn" title="ChatGPT"><i class="fas fa-robot"></i></button>
+<button type="button" id="google-search" class="search-button google-btn" title="Google"><i class="fab fa-google"></i></button>
+<button type="button" id="maps-search" class="search-button maps-btn" title="Maps"><i class="fas fa-map-marked-alt"></i></button>
+<button type="button" id="chatgpt-search" class="search-button chatgpt-btn" title="ChatGPT"><i class="fas fa-robot"></i></button>
 </div>
 </div>
 <main>
-<div class="column">
-<div class="section"><h2><i class="fas fa-calendar-day"></i> DÍA</h2><ul>
-<li><a href="https://www.alibaba.com/" target="_blank"><i class="fas fa-shopping-cart"></i> Alibaba</a></li>
-<li><a href="https://www.fiverr.com/inbox" target="_blank"><i class="fas fa-briefcase"></i> Fiverr</a></li>
-<li><a href="https://gemini.google.com/app" target="_blank"><i class="fas fa-wand-magic-sparkles"></i> Gemini</a></li>
-<li><a href="https://chat.openai.com" target="_blank"><i class="fas fa-comment-dots"></i> ChatGPT</a></li>
-<li><a href="https://grok.com/" target="_blank"><i class="fab fa-xing"></i> Grok (X AI)</a></li>
-<li><a href="https://claude.ai/new" target="_blank"><i class="fas fa-feather-alt"></i> Sonnet</a></li>
-<li><a href="https://app.holded.com/" target="_blank"><i class="fas fa-folder-open"></i> Holded</a></li>
-<li><a href="https://tritonrules.github.io/iptv-player/" target="_blank"><i class="fas fa-tv"></i> IPTV</a></li>
-</ul></div>
-<div class="section"><h2><i class="fas fa-network-wired"></i> Redes</h2><ul>
-<li><a href="https://x.com/home" target="_blank"><i class="fab fa-twitter"></i> X (Twitter)</a></li>
-<li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-<li><a href="https://hpanel.hostinger.com/vps" target="_blank"><i class="fas fa-server"></i> Hostinger</a></li>
-<li><a href="https://clawhub.ai/" target="_blank"><i class="fas fa-brain"></i> ClawHub</a></li>
-<li><a href="https://openrouter.ai/" target="_blank"><i class="fas fa-code-branch"></i> OpenRouter</a></li>
-<li><a href="https://brave.com/search/api/" target="_blank"><i class="fas fa-search"></i> API Brave</a></li>
-</ul></div>
-<div class="section"><h2><i class="fab fa-google-drive"></i> Drive</h2><ul>
-<li><a href="https://drive.google.com/drive/u/0/my-drive" target="_blank"><i class="fas fa-hdd"></i> Mi Unidad</a></li>
-<li><a href="https://accounts.google.com/b/0/AddMailService" target="_blank"><i class="fas fa-envelope"></i> Gmail</a></li>
-<li><a href="https://docs.google.com/document/u/0/" target="_blank"><i class="fas fa-file-alt"></i> Documentos</a></li>
-<li><a href="https://docs.google.com/spreadsheets/u/0/" target="_blank"><i class="fas fa-table"></i> Spreadsheets</a></li>
-</ul></div>
-<div class="section"><h2><i class="fas fa-university"></i> Bancos</h2><ul>
-<li><a href="https://www.bbva.es/empresas.html" target="_blank"><i class="fas fa-building-columns"></i> BBVA</a></li>
-<li><a href="https://www.bankinter.com/empresas/empresa" target="_blank"><i class="fas fa-building-columns"></i> Bankinter</a></li>
-<li><a href="https://www.revolut.com/business/" target="_blank"><i class="fas fa-building-columns"></i> Revolut B</a></li>
-</ul></div>
-</div>
-<div class="column">
-<div class="section"><h2><i class="fas fa-tools"></i> Utilidades</h2><ul>
-<li><a href="https://www.idealista.com/usuario/tus-alertas" target="_blank"><i class="fas fa-home"></i> Idealista</a></li>
-<li><a href="https://www.icloud.com/" target="_blank"><i class="fab fa-apple"></i> iCloud</a></li>
-<li><a href="https://www.amazon.es/" target="_blank"><i class="fab fa-amazon"></i> Amazon</a></li>
-<li><a href="https://github.com/TritonRules/homepage" target="_blank"><i class="fab fa-github"></i> GITHUB</a></li>
-<li><a href="https://www.google.com/maps/place/Mavepa/@40.4218119,-3.6838356,835m" target="_blank"><i class="fas fa-map-marker-alt"></i> Mavepa</a></li>
-<li><a href="https://biwenger.as.com/round" target="_blank"><i class="fas fa-futbol"></i> Biwenger</a></li>
-<li><a href="https://www.futbolfantasy.com/" target="_blank"><i class="fas fa-gamepad"></i> Fantasy</a></li>
-</ul></div>
+<div class="column" id="column-1"></div>
+<div class="column" id="column-2">
 <div class="section" id="converter-section"><h2><i class="fas fa-exchange-alt"></i> Conversor de Monedas</h2>
-<div><input id="amount" type="number" placeholder="Cantidad"/><select id="currency-from"><option value="EUR">EUR</option><option value="USD">USD</option><option value="CNY">CNY</option></select><button id="convert-btn">Convertir</button></div>
+<div><input id="amount" type="number" placeholder="Cantidad"/><select id="currency-from"><option value="EUR">EUR</option><option value="USD">USD</option><option value="CNY">CNY</option></select><button type="button" id="convert-btn">Convertir</button></div>
 <div id="conversion-result"></div></div>
-<div class="section" id="calendar-section"><h2><i class="fas fa-calendar-alt"></i> Calendario</h2>
-<div id="month-name" class="month-name"></div><div id="calendar"></div></div>
 </div>
 <div class="column">
 <div class="section">
+<h2><i class="fas fa-stopwatch"></i> Pomodoro</h2>
 <div class="pomodoro-options">
 <div><label for="work-duration">Trabajo:</label><select id="work-duration"><option value="25">25 min</option><option value="45">45 min</option><option value="55">55 min</option></select></div>
 <div><label for="break-duration">Descanso:</label><select id="break-duration"><option value="5">5 min</option><option value="10">10 min</option></select></div>
@@ -134,9 +97,9 @@ a:hover{color:#66eaff;transform:translateX(5px);padding-left:2px}
 <div class="pomodoro-container">
 <div id="timer-display" class="timer-display">25:00</div>
 <div class="timer-buttons">
-<button id="timer-start" class="timer-button start"><i class="fas fa-play"></i> Iniciar</button>
-<button id="timer-stop" class="timer-button stop" disabled><i class="fas fa-pause"></i> Pausa</button>
-<button id="timer-reset" class="timer-button reset"><i class="fas fa-redo"></i> Reset</button>
+<button type="button" id="timer-start" class="timer-button start"><i class="fas fa-play"></i> Iniciar</button>
+<button type="button" id="timer-stop" class="timer-button stop" disabled><i class="fas fa-pause"></i> Pausa</button>
+<button type="button" id="timer-reset" class="timer-button reset"><i class="fas fa-redo"></i> Reset</button>
 </div></div></div>
 <div class="section"><h2><i class="fas fa-clock"></i> Relojes</h2><div id="world-clocks" class="clocks-container"></div></div>
 <div class="section"><h2><i class="fas fa-cloud-sun"></i> Clima</h2>
@@ -147,25 +110,416 @@ a:hover{color:#66eaff;transform:translateX(5px);padding-left:2px}
 <div class="weather-info"><div id="weather-icon" class="weather-icon"><i class="fas fa-sync fa-spin"></i></div><div id="weather-temp" class="weather-temp">--°C</div></div>
 <div id="weather-desc" class="weather-desc">Cargando...</div>
 <div id="weather-tomorrow" class="weather-tomorrow">Previsión mañana: Cargando...</div>
-<a id="weather-link" class="weather-link" target="_blank">Más detalles <i class="fas fa-external-link-alt"></i></a>
+<a id="weather-link" class="weather-link" target="_blank" rel="noopener noreferrer">Más detalles <i class="fas fa-external-link-alt"></i></a>
 </div></div>
+<div class="section" id="calendar-section"><h2><i class="fas fa-calendar-alt"></i> Calendario</h2>
+<div id="month-name" class="month-name"></div><div id="calendar"></div></div>
 </div>
 </main>
 <footer class="footer">© 2025 - Página de inicio TriTonRuleS</footer>
 </div>
 <script>
-function setupSearch(){var i=document.getElementById('search-input'),g=document.getElementById('google-search'),m=document.getElementById('maps-search'),c=document.getElementById('chatgpt-search');g.onclick=function(){window.open('https://www.google.com/search?q='+encodeURIComponent(i.value),'_blank')};m.onclick=function(){window.open('https://www.google.com/maps/search/'+encodeURIComponent(i.value),'_blank')};c.onclick=function(){window.open('https://chat.openai.com/?q='+encodeURIComponent(i.value),'_blank')};i.addEventListener('keydown',function(e){if(e.key==='Enter'){g.click();c.click();}});}
-var rates={};
-async function fetchRates(){try{rates=(await(await fetch('https://api.exchangerate-api.com/v4/latest/EUR')).json()).rates}catch(e){console.error(e)}}
-function convert(){var amt=parseFloat(document.getElementById('amount').value),from=document.getElementById('currency-from').value;if(!amt||!rates[from])return;var o=document.getElementById('conversion-result');o.innerHTML='';['EUR','USD','CNY'].forEach(function(t){if(t!==from){var v=(amt*(rates[t]/rates[from])).toFixed(4);o.innerHTML+=amt+' '+from+' = '+v+' '+t+'<br>';}});}
-function generateCalendar(){var n=new Date(),y=n.getFullYear(),m=n.getMonth();document.getElementById('month-name').textContent=n.toLocaleDateString('es-ES',{month:'long',year:'numeric'});var first=new Date(y,m,1),last=new Date(y,m+1,0),days=last.getDate(),start=first.getDay();if(start===0)start=7;var html='<table><tr>'+['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'].map(function(d){return'<th>'+d+'</th>'}).join('')+'</tr><tr>';for(var i=1;i<start;i++)html+='<td></td>';var c=start;for(var d=1;d<=days;d++){html+='<td>'+d+'</td>';if(c%7===0&&d!==days)html+='</tr><tr>';c++;}document.getElementById('calendar').innerHTML=html+'</tr></table>';}
-function updateWorldClocks(){var z=[['Madrid','Europe/Madrid'],['Shenzhen','Asia/Shanghai'],['San Diego','America/Los_Angeles'],['New York','America/New_York']];document.getElementById('world-clocks').innerHTML=z.map(function(x){return x[0]+': '+new Date().toLocaleTimeString('es-ES',{timeZone:x[1],hour12:false})}).join('<br>');}
-function setRandomBackground(){var url='https://picsum.photos/1920/1080?random='+Date.now(),img=new Image();img.src=url;img.onload=function(){document.body.style.backgroundImage="url('"+url+"')"}}
-function setupWeather(){var coords={madrid:[40.4168,-3.7038],elche:[38.2682,-0.7016],albacete:[38.9943,-1.8561],leon:[42.5987,-5.5671],candanchu:[42.6169,0.7594]};var sel=document.getElementById('weather-city');function wmap(c){return({0:['Despejado','sun'],1:['Parc. nublado','cloud'],2:['Parc. nublado','cloud'],3:['Parc. nublado','cloud'],45:['Niebla','smog'],48:['Niebla','smog'],51:['Llovizna','cloud-rain'],53:['Llovizna','cloud-rain'],55:['Llovizna','cloud-rain'],61:['Lluvia','cloud-showers-heavy'],63:['Lluvia','cloud-showers-heavy'],65:['Lluvia','cloud-showers-heavy'],71:['Nieve','snowflake'],73:['Nieve','snowflake'],75:['Nieve','snowflake'],80:['Chubascos','cloud-showers-heavy'],81:['Chubascos','cloud-showers-heavy'],82:['Chubascos','cloud-showers-heavy'],95:['Tormenta','bolt'],96:['Tormenta','bolt'],99:['Tormenta','bolt']})[c]||['--','question']}async function up(){var pos=coords[sel.value];try{var d=await(await fetch('https://api.open-meteo.com/v1/forecast?latitude='+pos[0]+'&longitude='+pos[1]+'&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto')).json();var r=wmap(d.current_weather.weathercode);document.getElementById('weather-temp').textContent=d.current_weather.temperature+'°C';document.getElementById('weather-icon').innerHTML='<i class="fas fa-'+r[1]+'"></i>';document.getElementById('weather-desc').textContent=r[0];var r2=wmap(d.daily.weathercode[1]);document.getElementById('weather-tomorrow').textContent='Previsión mañana: '+d.daily.temperature_2m_min[1]+'°C - '+d.daily.temperature_2m_max[1]+'°C, '+r2[0];}catch(e){console.error(e);}}sel.onchange=function(){up();localStorage.setItem('weatherCity',sel.value)};if(localStorage.getItem('weatherCity'))sel.value=localStorage.getItem('weatherCity');up();}
-function setupPomodoro(){var disp=document.getElementById('timer-display'),start=document.getElementById('timer-start'),stop=document.getElementById('timer-stop'),rst=document.getElementById('timer-reset'),work=document.getElementById('work-duration'),brk=document.getElementById('break-duration'),label=document.getElementById('mode-label');var mins=+work.value,secs=0,running=false,mode='work',timer;var snd=new Audio('https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg');snd.loop=true;function show(){disp.textContent=(mins<10?'0':'')+mins+':'+(secs<10?'0':'')+secs;label.textContent=mode==='work'?'Modo: Trabajo':'Modo: Descanso';}function tick(){if(secs===0){if(mins===0){clearInterval(timer);snd.play();mode=mode==='work'?'break':'work';mins=mode==='work'?+work.value:+brk.value;secs=0;show();startTimer();return;}mins--;secs=59;}else secs--;show();}function startTimer(){if(running)return;running=true;start.disabled=true;stop.disabled=false;timer=setInterval(tick,1000);}function stopTimer(){clearInterval(timer);running=false;start.disabled=false;stop.disabled=true;}function resetTimer(){stopTimer();mode='work';mins=+work.value;secs=0;snd.pause();snd.currentTime=0;show();}start.onclick=startTimer;stop.onclick=stopTimer;rst.onclick=resetTimer;if(Notification.permission==='default')Notification.requestPermission();show();}
-document.addEventListener('DOMContentLoaded',function(){setRandomBackground();setInterval(setRandomBackground,300000);setupSearch();setupWeather();setupPomodoro();generateCalendar();fetchRates();updateWorldClocks();setInterval(updateWorldClocks,1000);document.getElementById('convert-btn').onclick=convert;});
+const LINKS = [
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Inicio", href: "https://inicio.tritonrules.tech/", icon: "fas fa-home", aliases: ["inicio", "start", "portal"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Trabajo", href: "https://trabajo.tritonrules.tech/", icon: "fas fa-laptop", aliases: ["trabajo", "tieto", "tieto home", "oficina"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Coches", href: "https://coches.tritonrules.tech/", icon: "fas fa-car", aliases: ["coches", "coche", "coche nuevo", "auto", "cars"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Homarr", href: "https://home.tritonrules.tech/", icon: "fas fa-th-large", aliases: ["homarr", "home", "dashboard", "tablero"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Retiro", href: "https://retiro.tritonrules.tech/", icon: "fas fa-tree", aliases: ["retiro", "retiro interactivo", "parque"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "CRM", href: "https://crm.tritonrules.tech/", icon: "fas fa-address-book", aliases: ["crm"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "NEXUS", href: "https://nexus.tritonrules.tech/", icon: "fas fa-cubes", aliases: ["nexus"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Eye-share", href: "https://eyeshare.tritonrules.tech/", icon: "fas fa-eye", aliases: ["eyeshare", "eye-share", "eye share", "eyes"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Regulatorio", href: "https://regulatorio.tritonrules.tech/", icon: "fas fa-scale-balanced", aliases: ["regulatorio", "cnmv", "regulacion"] },
+  { column: 1, section: "Mis webs (VPS)", sectionIcon: "fas fa-globe", name: "Panel", href: "https://panel.tritonrules.tech/", icon: "fas fa-sliders", aliases: ["panel", "admin"] },
+
+  { column: 1, section: "IA", sectionIcon: "fas fa-robot", name: "ChatGPT", href: "https://chatgpt.com/", icon: "fas fa-comment-dots", aliases: ["chatgpt", "gpt", "chat"] },
+  { column: 1, section: "IA", sectionIcon: "fas fa-robot", name: "Gemini", href: "https://gemini.google.com/app", icon: "fas fa-wand-magic-sparkles", aliases: ["gemini", "bard"] },
+  { column: 1, section: "IA", sectionIcon: "fas fa-robot", name: "Grok (X AI)", href: "https://grok.com/", icon: "fab fa-xing", aliases: ["grok", "xai", "x ai"] },
+  { column: 1, section: "IA", sectionIcon: "fas fa-robot", name: "Sonnet", href: "https://claude.ai/new", icon: "fas fa-feather-alt", aliases: ["sonnet", "claude"] },
+  { column: 1, section: "IA", sectionIcon: "fas fa-robot", name: "OpenRouter", href: "https://openrouter.ai/", icon: "fas fa-code-branch", aliases: ["openrouter", "or"] },
+
+  { column: 1, section: "Drive", sectionIcon: "fab fa-google-drive", name: "Mi Unidad", href: "https://drive.google.com/drive/u/0/my-drive", icon: "fas fa-hdd", aliases: ["drive", "unidad", "mi unidad", "google drive"] },
+  { column: 1, section: "Drive", sectionIcon: "fab fa-google-drive", name: "Gmail", href: "https://mail.google.com/", icon: "fas fa-envelope", aliases: ["gmail", "mail", "correo"] },
+  { column: 1, section: "Drive", sectionIcon: "fab fa-google-drive", name: "Documentos", href: "https://docs.google.com/document/u/0/", icon: "fas fa-file-alt", aliases: ["documentos", "docs", "google docs"] },
+  { column: 1, section: "Drive", sectionIcon: "fab fa-google-drive", name: "Spreadsheets", href: "https://docs.google.com/spreadsheets/u/0/", icon: "fas fa-table", aliases: ["spreadsheets", "sheets", "hojas", "excel google"] },
+
+  { column: 2, section: "Infra", sectionIcon: "fas fa-server", name: "Hostinger", href: "https://hpanel.hostinger.com/vps", icon: "fas fa-server", aliases: ["hostinger", "vps", "hpanel"] },
+  { column: 2, section: "Infra", sectionIcon: "fas fa-server", name: "ClawHub", href: "https://clawhub.ai/", icon: "fas fa-brain", aliases: ["clawhub", "claw", "openclaw"] },
+  { column: 2, section: "Infra", sectionIcon: "fas fa-server", name: "API Brave", href: "https://brave.com/search/api/", icon: "fas fa-search", aliases: ["brave", "api brave"] },
+  { column: 2, section: "Infra", sectionIcon: "fas fa-server", name: "GITHUB", href: "https://github.com/TritonRules/homepage", icon: "fab fa-github", aliases: ["github", "gh", "repo"] },
+
+  { column: 2, section: "Redes", sectionIcon: "fas fa-network-wired", name: "X (Twitter)", href: "https://x.com/home", icon: "fab fa-twitter", aliases: ["x", "twitter"] },
+  { column: 2, section: "Redes", sectionIcon: "fas fa-network-wired", name: "YouTube", href: "https://www.youtube.com/", icon: "fab fa-youtube", aliases: ["youtube", "yt"] },
+
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "Idealista", href: "https://www.idealista.com/usuario/tus-alertas", icon: "fas fa-home", aliases: ["idealista", "casa", "pisos"] },
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "iCloud", href: "https://www.icloud.com/", icon: "fab fa-apple", aliases: ["icloud", "apple"] },
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "Amazon", href: "https://www.amazon.es/", icon: "fab fa-amazon", aliases: ["amazon"] },
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "Mavepa", href: "https://www.google.com/maps/place/Mavepa/@40.4218119,-3.6838356,835m", icon: "fas fa-map-marker-alt", aliases: ["mavepa"] },
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "Biwenger", href: "https://biwenger.as.com/round", icon: "fas fa-futbol", aliases: ["biwenger"] },
+  { column: 2, section: "Utilidades", sectionIcon: "fas fa-tools", name: "Fantasy", href: "https://www.futbolfantasy.com/", icon: "fas fa-gamepad", aliases: ["fantasy", "futbol fantasy"] }
+];
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderLinks() {
+  var col1 = document.getElementById("column-1");
+  var col2 = document.getElementById("column-2");
+  var anchor = document.getElementById("converter-section");
+  document.querySelectorAll(".generated-section").forEach(function (el) { el.remove(); });
+
+  var order = [];
+  var groups = {};
+  LINKS.forEach(function (link, index) {
+    var key = link.column + "::" + link.section;
+    if (!groups[key]) {
+      groups[key] = { column: link.column, title: link.section, icon: link.sectionIcon, links: [] };
+      order.push(key);
+    }
+    groups[key].links.push(Object.assign({ _index: index }, link));
+  });
+
+  order.forEach(function (key) {
+    var group = groups[key];
+    var section = document.createElement("div");
+    section.className = "section generated-section";
+    section.setAttribute("data-section", group.title);
+    var h2 = document.createElement("h2");
+    h2.innerHTML = '<i class="' + escapeHtml(group.icon) + '"></i> ' + escapeHtml(group.title);
+    var ul = document.createElement("ul");
+    group.links.forEach(function (link) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = link.href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.dataset.linkIndex = String(link._index);
+      a.innerHTML = '<i class="' + escapeHtml(link.icon) + '"></i> ' + escapeHtml(link.name);
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    section.appendChild(h2);
+    section.appendChild(ul);
+    if (group.column === 1) {
+      col1.appendChild(section);
+    } else {
+      col2.insertBefore(section, anchor);
+    }
+  });
+}
+
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function linkMatches(link, query) {
+  if (!query) return true;
+  var haystacks = [link.name].concat(link.aliases || []);
+  return haystacks.some(function (item) {
+    return normalizeText(item).indexOf(query) !== -1;
+  });
+}
+
+function matchingLinks(query) {
+  if (!query) return [];
+  return LINKS.filter(function (link) { return linkMatches(link, query); });
+}
+
+function filterShortcuts(query) {
+  var q = normalizeText(query);
+  document.querySelectorAll(".generated-section").forEach(function (section) {
+    var visible = 0;
+    section.querySelectorAll("li").forEach(function (li) {
+      var a = li.querySelector("a");
+      var index = Number(a.dataset.linkIndex);
+      var match = !q || linkMatches(LINKS[index], q);
+      li.classList.toggle("link-hidden", !match);
+      a.classList.toggle("link-match", Boolean(q && match));
+      if (match) visible += 1;
+    });
+    section.classList.toggle("section-hidden", Boolean(q && visible === 0));
+  });
+}
+
+function openExternal(url) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function setupSearch() {
+  var input = document.getElementById("search-input");
+  var googleButton = document.getElementById("google-search");
+  var mapsButton = document.getElementById("maps-search");
+  var chatButton = document.getElementById("chatgpt-search");
+
+  function queryValue() {
+    return input.value.trim();
+  }
+
+  googleButton.addEventListener("click", function () {
+    openExternal("https://www.google.com/search?q=" + encodeURIComponent(queryValue()));
+  });
+  mapsButton.addEventListener("click", function () {
+    var q = queryValue();
+    openExternal(q ? "https://www.google.com/maps/search/" + encodeURIComponent(q) : "https://www.google.com/maps");
+  });
+  chatButton.addEventListener("click", function () {
+    var q = queryValue();
+    openExternal(q ? "https://chatgpt.com/?q=" + encodeURIComponent(q) : "https://chatgpt.com/");
+  });
+  input.addEventListener("input", function () {
+    filterShortcuts(input.value);
+  });
+  input.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    var q = normalizeText(input.value);
+    if (!q) return;
+    var matches = matchingLinks(q);
+    if (matches.length) {
+      openExternal(matches[0].href);
+    } else {
+      openExternal("https://www.google.com/search?q=" + encodeURIComponent(input.value.trim()));
+    }
+  });
+}
+
+var rates = {};
+async function fetchRates() {
+  try {
+    rates = (await (await fetch("https://api.exchangerate-api.com/v4/latest/EUR")).json()).rates;
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function convert() {
+  var amt = parseFloat(document.getElementById("amount").value);
+  var from = document.getElementById("currency-from").value;
+  if (!amt || !rates[from]) return;
+  var out = document.getElementById("conversion-result");
+  out.innerHTML = "";
+  ["EUR", "USD", "CNY"].forEach(function (target) {
+    if (target !== from) {
+      var value = (amt * (rates[target] / rates[from])).toFixed(4);
+      out.innerHTML += amt + " " + from + " = " + value + " " + target + "<br>";
+    }
+  });
+}
+
+function generateCalendar() {
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  var today = now.getDate();
+  document.getElementById("month-name").textContent = now.toLocaleDateString("es-ES", { month: "long", year: "numeric" });
+  var first = new Date(year, month, 1);
+  var last = new Date(year, month + 1, 0);
+  var days = last.getDate();
+  var start = first.getDay();
+  if (start === 0) start = 7;
+  var html = "<table><tr>" + ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"].map(function (d) { return "<th>" + d + "</th>"; }).join("") + "</tr><tr>";
+  for (var i = 1; i < start; i++) html += "<td></td>";
+  var cell = start;
+  for (var d = 1; d <= days; d++) {
+    html += "<td" + (d === today ? " class=\"today\"" : "") + ">" + d + "</td>";
+    if (cell % 7 === 0 && d !== days) html += "</tr><tr>";
+    cell++;
+  }
+  document.getElementById("calendar").innerHTML = html + "</tr></table>";
+}
+
+function updateWorldClocks() {
+  var zones = [["Madrid", "Europe/Madrid"], ["Shenzhen", "Asia/Shanghai"], ["San Diego", "America/Los_Angeles"], ["New York", "America/New_York"]];
+  document.getElementById("world-clocks").innerHTML = zones.map(function (item) {
+    return item[0] + ": " + new Date().toLocaleTimeString("es-ES", { timeZone: item[1], hour12: false });
+  }).join("<br>");
+}
+
+function setRandomBackground() {
+  var url = "https://picsum.photos/1920/1080?random=" + Date.now();
+  var img = new Image();
+  img.src = url;
+  img.onload = function () {
+    document.body.style.backgroundImage = "url('" + url + "')";
+  };
+}
+
+function setupWeather() {
+  var coords = {
+    madrid: [40.4168, -3.7038],
+    elche: [38.2682, -0.7016],
+    albacete: [38.9943, -1.8561],
+    leon: [42.5987, -5.5671],
+    candanchu: [42.6169, 0.7594]
+  };
+  var sel = document.getElementById("weather-city");
+  var weatherLink = document.getElementById("weather-link");
+
+  function wmap(code) {
+    return ({
+      0: ["Despejado", "sun"], 1: ["Parc. nublado", "cloud"], 2: ["Parc. nublado", "cloud"], 3: ["Parc. nublado", "cloud"],
+      45: ["Niebla", "smog"], 48: ["Niebla", "smog"],
+      51: ["Llovizna", "cloud-rain"], 53: ["Llovizna", "cloud-rain"], 55: ["Llovizna", "cloud-rain"],
+      61: ["Lluvia", "cloud-showers-heavy"], 63: ["Lluvia", "cloud-showers-heavy"], 65: ["Lluvia", "cloud-showers-heavy"],
+      71: ["Nieve", "snowflake"], 73: ["Nieve", "snowflake"], 75: ["Nieve", "snowflake"],
+      80: ["Chubascos", "cloud-showers-heavy"], 81: ["Chubascos", "cloud-showers-heavy"], 82: ["Chubascos", "cloud-showers-heavy"],
+      95: ["Tormenta", "bolt"], 96: ["Tormenta", "bolt"], 99: ["Tormenta", "bolt"]
+    })[code] || ["--", "question"];
+  }
+
+  function updateWeatherLink() {
+    var pos = coords[sel.value];
+    if (!pos) return;
+    weatherLink.href = "https://www.windy.com/" + pos[0] + "/" + pos[1];
+    weatherLink.target = "_blank";
+    weatherLink.rel = "noopener noreferrer";
+  }
+
+  async function updateWeather() {
+    var pos = coords[sel.value];
+    updateWeatherLink();
+    try {
+      var data = await (await fetch("https://api.open-meteo.com/v1/forecast?latitude=" + pos[0] + "&longitude=" + pos[1] + "&current_weather=true&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto")).json();
+      var current = wmap(data.current_weather.weathercode);
+      document.getElementById("weather-temp").textContent = data.current_weather.temperature + "°C";
+      document.getElementById("weather-icon").innerHTML = '<i class="fas fa-' + current[1] + '"></i>';
+      document.getElementById("weather-desc").textContent = current[0];
+      var tomorrow = wmap(data.daily.weathercode[1]);
+      document.getElementById("weather-tomorrow").textContent = "Previsión mañana: " + data.daily.temperature_2m_min[1] + "°C - " + data.daily.temperature_2m_max[1] + "°C, " + tomorrow[0];
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  sel.addEventListener("change", function () {
+    updateWeather();
+    localStorage.setItem("weatherCity", sel.value);
+  });
+  if (localStorage.getItem("weatherCity")) sel.value = localStorage.getItem("weatherCity");
+  updateWeather();
+}
+
+function setupPomodoro() {
+  var display = document.getElementById("timer-display");
+  var startButton = document.getElementById("timer-start");
+  var stopButton = document.getElementById("timer-stop");
+  var resetButton = document.getElementById("timer-reset");
+  var workSelect = document.getElementById("work-duration");
+  var breakSelect = document.getElementById("break-duration");
+  var label = document.getElementById("mode-label");
+  var minutes = +workSelect.value;
+  var seconds = 0;
+  var running = false;
+  var mode = "work";
+  var timer = null;
+  var sound = new Audio("https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg");
+  sound.loop = false;
+
+  function show() {
+    display.textContent = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    label.textContent = mode === "work" ? "Modo: Trabajo" : "Modo: Descanso";
+  }
+
+  function stopSound() {
+    try {
+      sound.pause();
+      sound.currentTime = 0;
+    } catch (e) {}
+  }
+
+  function notifyEnd() {
+    var finishedWork = mode === "work";
+    var title = finishedWork ? "Fin del tiempo de trabajo" : "Fin del descanso";
+    var body = finishedWork ? "Toca un descanso." : "Toca volver al trabajo.";
+    stopSound();
+    try {
+      sound.loop = false;
+      var playResult = sound.play();
+      if (playResult && typeof playResult.catch === "function") playResult.catch(function () {});
+    } catch (e) {}
+    if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+      try {
+        new Notification(title, { body: body, silent: true });
+      } catch (e) {}
+    }
+  }
+
+  function tick() {
+    if (seconds === 0) {
+      if (minutes === 0) {
+        clearInterval(timer);
+        running = false;
+        notifyEnd();
+        mode = mode === "work" ? "break" : "work";
+        minutes = mode === "work" ? +workSelect.value : +breakSelect.value;
+        seconds = 0;
+        show();
+        startTimer(true);
+        return;
+      }
+      minutes--;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    show();
+  }
+
+  function startTimer(fromAutoContinue) {
+    if (running) return;
+    if (!fromAutoContinue && typeof Notification !== "undefined" && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+    running = true;
+    startButton.disabled = true;
+    stopButton.disabled = false;
+    timer = setInterval(tick, 1000);
+  }
+
+  function stopTimer() {
+    clearInterval(timer);
+    running = false;
+    startButton.disabled = false;
+    stopButton.disabled = true;
+  }
+
+  function resetTimer() {
+    stopTimer();
+    stopSound();
+    mode = "work";
+    minutes = +workSelect.value;
+    seconds = 0;
+    show();
+  }
+
+  startButton.addEventListener("click", function () { startTimer(false); });
+  stopButton.addEventListener("click", stopTimer);
+  resetButton.addEventListener("click", resetTimer);
+  show();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderLinks();
+  setRandomBackground();
+  setInterval(setRandomBackground, 300000);
+  setupSearch();
+  setupWeather();
+  setupPomodoro();
+  generateCalendar();
+  fetchRates();
+  updateWorldClocks();
+  setInterval(updateWorldClocks, 1000);
+  document.getElementById("convert-btn").addEventListener("click", convert);
+});
 </script>
 </body>
 </html>
-
-
